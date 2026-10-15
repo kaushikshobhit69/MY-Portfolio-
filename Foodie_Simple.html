@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #292929;
+        }
+
+        header, section, footer {
+            padding: 30px 8%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo, footer span {
+            color: #ff5733;
+        }
+
+        nav a {
+            margin: 0 8px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            background: #ff5733;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: #fff5ef;
+        }
+
+        .hero div, .hero img {
+            width: 50%;
+        }
+
+        h1 {
+            margin: 15px 0;
+            font-size: 42px;
+        }
+
+        .hero p {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .hero img {
+            height: 330px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px #00000020;
+        }
+
+        .category img, .food-card > img {
+            display: block;
+            object-fit: cover;
+        }
+
+        .category, .food-card {
+            box-shadow: 0 5px 18px #0000000d;
+            transition: transform 0.2s;
+        }
+
+        .category:hover, .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category img {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+        }
+
+        .category h3 {
+            margin-top: 12px;
+        }
+
+        .search {
+            display: flex;
+            gap: 8px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .categories, .food-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category, .food-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .category {
+            padding: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .category img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .menu {
+            background: #fff5ef;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 8px;
+        }
+
+        .food-card {
+            background: white;
+            text-align: left;
+        }
+
+        .food-card > img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 15px;
+        }
+
+        .food-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .food-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            color: #ff5733;
+        }
+
+        .contact, footer {
+            text-align: center;
+        }
+
+        footer {
+            background: #252525;
+            color: white;
+        }
+
+        footer p {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 700px) {
+            header, .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px 4px;
+            }
+
+            .hero div, .hero img {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .categories, .food-list {
+                grid-template-columns: 1fr;
+            }
+
+            header, section, footer {
+                padding: 25px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">Foodie.</h2>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn" href="#menu">Order Now</a>
+    </header>
+
+    <section class="hero">
+        <div>
+            <p>FRESH FOOD, FAST DELIVERY</p>
+            <h1>Delicious Food<br>Delivered <span class="logo">To You.</span></h1>
+            <p>Enjoy your favourite meals at home with fresh ingredients and quick delivery.</p>
+
+            <form class="search" action="#menu">
+                <input type="text" placeholder="Search your favourite food">
+                <button class="btn" type="submit">Search</button>
+            </form>
+            <p>🚴 Fast Delivery | 🍔 Fresh & Tasty</p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1000&q=90" alt="Burger">
+    </section>
+
+    <section id="categories">
+        <div class="section-title">
+            <h2>Explore Categories</h2>
+            <p>Choose what you want to eat today</p>
+        </div>
+
+        <div class="categories">
+            <a href="#menu" class="category">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=85" alt="Pizza">
+                <h3>Pizza</h3>
+            </a>
+            <a href="#menu" class="category">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58bd?auto=format&fit=crop&w=500&q=85" alt="Burger">
+                <h3>Burgers</h3>
+            </a>
+            <a href="#menu" class="category">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=500&q=85" alt="Noodles">
+                <h3>Noodles</h3>
+            </a>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="section-title">
+            <h2>Popular Dishes</h2>
+            <p>Our customers' favourite meals</p>
+        </div>
+
+        <div class="food-list">
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=85" alt="Pizza">
+                <div class="food-info">
+                    <h3>Cheese Pizza ⭐ 4.8</h3>
+                    <p>Delicious pizza loaded with cheese.</p>
+                    <div class="food-bottom">
+                        <h3 class="price">₹199</h3>
+                        <a href="#contact" class="btn">Order +</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58bd?auto=format&fit=crop&w=700&q=85" alt="Burger">
+                <div class="food-info">
+                    <h3>Classic Burger ⭐ 4.7</h3>
+                    <p>Juicy burger with fresh ingredients.</p>
+                    <div class="food-bottom">
+                        <h3 class="price">₹149</h3>
+                        <a href="#contact" class="btn">Order +</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=85" alt="Noodles">
+                <div class="food-info">
+                    <h3>Spicy Noodles ⭐ 4.6</h3>
+                    <p>Tasty noodles with delicious spices.</p>
+                    <div class="food-bottom">
+                        <h3 class="price">₹129</h3>
+                        <a href="#contact" class="btn">Order +</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Hungry? Let's fix that!</h2>
+        <p>Discover your favourite meal and enjoy every bite.</p><br>
+        <a href="#menu" class="btn">Explore Menu</a>
+    </section>
+
+    <footer>
+        <h2>Foodie<span>.</span></h2>
+        <p>Made with Love</p>
+        <p>© 2026 Foodie. All rights reserved to Shobhit Kaushik</p>
+    </footer>
+</body>
+</html>
